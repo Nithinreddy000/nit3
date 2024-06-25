@@ -33,6 +33,8 @@ function DashboardNavbarRegister({ absolute, light, isMini, onSearch }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('');
+  const isActive = (path) => location.pathname === path;
+
 
   useEffect(() => {
     if (fixedNavbar) {
@@ -187,44 +189,125 @@ function DashboardNavbarRegister({ absolute, light, isMini, onSearch }) {
           <div className="button-container">
             <IconButton
               className="button"
-              style={buttonStyle}
+              style={{
+                ...buttonStyle,
+               }}
               onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0px)'}
               onClick={() => navigate("/tmt_register")} // Redirect on click
             >
               <Icon style={{ fontSize: '20px' }}>bar_chart</Icon>
-              <h4 style={{fontFamily:'Arial',fontSize:'15px',paddingTop:'7px'}}>Tmt&nbsp;&nbsp;Bars</h4>
+              <h4 style={{
+  fontFamily: 'Arial',
+  fontSize: '15px',
+  paddingTop: '7px',
+  paddingBottom: isActive("/tmt_register") ? '5px' : 'none',
+  position: 'relative' // Needed for positioning the pseudo-element
+}}>
+  Tmt&nbsp;&nbsp;Bars
+  <span style={{
+    content: '""',
+    display: isActive("/tmt_register") ? 'block' : 'none',
+    position: 'absolute',
+    bottom: -3,
+    left: 18,
+    width: '40%',
+    height: '5px', // Adjust the height of the "border"
+    backgroundColor: 'white',
+    borderRadius:'3px'
+  }}></span>
+</h4>
             </IconButton>
             <IconButton
               className="button"
-              style={buttonStyle}
+              style={{
+                ...buttonStyle,
+               }}
               onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0px)'}
               onClick={() => navigate("/billets_register")} // Redirect on click
             >
               <Icon style={{ fontSize: '20px' }}>layers</Icon>
-              <h4 style={{fontFamily:'Arial',fontSize:'15px',paddingTop:'7px'}}>Billets</h4>
-            </IconButton>
+              <h4 style={{
+  fontFamily: 'Arial',
+  fontSize: '15px',
+  paddingTop: '7px',
+  paddingBottom: isActive("/billets_register") ? '5px'  : 'none',
+  position: 'relative' // Needed for positioning the pseudo-element
+}}>
+  Billets
+  <span style={{
+    content: '""',
+    display: isActive("/billets_register") ? 'block' : 'none',
+    position: 'absolute',
+    bottom: -3,
+    left: 18,
+    width: '40%',
+    height: '5px', // Adjust the height of the "border"
+    backgroundColor: 'white',
+    borderRadius:'3px'
+  }}></span>
+</h4>            </IconButton>
             <IconButton
               className="button"
-              style={buttonStyle}
+              style={{
+                ...buttonStyle,
+               }}
               onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0px)'}
               onClick={() => navigate("/structures_register")} // Redirect on click
             >
               <Icon style={{ fontSize: '20px' }}>building</Icon>
-              <h4 style={{fontFamily:'Arial',fontSize:'15px',paddingTop:'7px'}}>Structures</h4>
-            </IconButton>
+              <h4 style={{
+  fontFamily: 'Arial',
+  fontSize: '15px',
+  paddingTop: '7px',
+  paddingBottom: isActive("/structures_register") ? '5px' : 'none',
+  position: 'relative' // Needed for positioning the pseudo-element
+}}>
+  Structures
+  <span style={{
+    content: '""',
+    display: isActive("/structures_register") ? 'block' : 'none',
+    position: 'absolute',
+    bottom: -3,
+    left: 18,
+    width: '40%',
+    height: '5px', // Adjust the height of the "border"
+    backgroundColor: 'white',
+    borderRadius:'3px'
+  }}></span>
+</h4>            </IconButton>
             <IconButton
               className="button"
-              style={buttonStyle}
+              style={{
+                ...buttonStyle,
+               }}
               onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-3px)'}
               onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0px)'}
               onClick={() => navigate("/pipes_register")} // Redirect on click
             >
               <Icon style={{ fontSize: '20px' }}>plumbing</Icon>
-              <h4 style={{fontFamily:'Arial',fontSize:'15px',paddingTop:'7px'}}>Pipes</h4>
-            </IconButton>
+              <h4 style={{
+  fontFamily: 'Arial',
+  fontSize: '15px',
+  paddingTop: '7px',
+  paddingBottom: isActive("/pipes_register") ? '5px': 'none',
+  position: 'relative' // Needed for positioning the pseudo-element
+}}>
+  Pipes
+  <span style={{
+    content: '""',
+    display: isActive("/pipes_register") ? 'block' : 'none',
+    position: 'absolute',
+    bottom: -3,
+    left: 18,
+    width: '40%',
+    height: '5px', // Adjust the height of the "border"
+    backgroundColor: 'white',
+    borderRadius:'3px'
+  }}></span>
+</h4>            </IconButton>
           </div>
         </MDBox>
       <style jsx>{`

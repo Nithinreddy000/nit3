@@ -67,6 +67,7 @@ function SidenavRegister({ brandName, routes, onItemClick, onItemClick2, ...rest
       onItemClick(id);
     }
     setClickedKey(key);
+    toggleExpansion(key);
   };
 
 
