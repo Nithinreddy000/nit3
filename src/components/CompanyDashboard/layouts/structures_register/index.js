@@ -10,9 +10,6 @@ import '../register_focus.css';
 import Stats_card_for_register from "../../examples/Cards/Stats_card_for_register";
 import MDTypography from "../../components/MDTypography";
 import { Grid } from "@mui/material";
-import { infinity } from 'ldrs';
-
-infinity.register();
 
 function StructuresRegister() {
   const navigate = useNavigate();
@@ -81,18 +78,6 @@ function StructuresRegister() {
 
   return (
     <DashboardLayout>
-      {loading && (
-        <div className="loader-overlay">
-          <l-infinity
-            size="55"
-            stroke="4"
-            stroke-length="0.15"
-            bg-opacity="0.1"
-            speed="1.3"
-            color="white"
-          ></l-infinity>
-        </div>
-      )}
       <DashboardNavbarRegister onSearch={handleSearch} />
       <MDBox py={3}>
         <SidenavRegister
@@ -100,7 +85,7 @@ function StructuresRegister() {
           onItemClick={(id) => {
             const headerElement = document.getElementById(id);
             if (headerElement) {
-              headerElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              headerElement.scrollIntoView({ behavior: 'instant', block: 'center' });
             }
           }}
           onItemClick2={(id2) => {
@@ -161,18 +146,6 @@ function StructuresRegister() {
       </MDBox>
       <Footer />
       <style jsx>{`
-        .loader-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.8);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 9999;
-        }
      @media (max-width: 344px) {
           h3 {
             margin-right: 10vh !important;

@@ -53,8 +53,8 @@ function SidenavRegister({ brandName, routes, onItemClick, onItemClick2, ...rest
   }, [dispatch, location]);
 
   useEffect(() => {
-    setActiveKey(location.pathname.replace("/", ""));
-  }, [location]);
+    setActiveKey(clickedKey);
+  }, [clickedKey]);
 
   useEffect(() => {
     if (activeRef.current) {

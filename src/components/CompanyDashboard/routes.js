@@ -16,6 +16,7 @@ import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import RegisterIcon from '@mui/icons-material/AppRegistration'
 import BilletsRegister from "./layouts/billets_register";
 import StructuresRegister from "./layouts/structures_register";
+import SvgIcon from '@mui/material/SvgIcon';
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -25,6 +26,17 @@ import Billing from "./layouts/billing2";
 import Invoice from "./layouts/invoice";
 import TmtRegister from "./layouts/tmt_register";
 import PipesRegister from "./layouts/pipes_register";
+import WeighBridge from "./layouts/weighbridge_inward";
+import WeighBridge2 from "./layouts/weighbridge_outward";
+import WeighBridge3 from "./layouts/weighbridge_store";
+
+function WeighbridgeIcon(props) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M4 10h16v2H4v-2zm0 4h16v2H4v-2zm0-8h16v2H4V6zM2 2h2v20H2V2zm20 0h2v20h-2V2z"/>
+    </SvgIcon>
+  );
+}
 
 const routes = [
   {
@@ -138,6 +150,30 @@ const routes = [
     icon: <Icon fontSize="small">event_note</Icon>,
     route: "/invoice",
     component: <Invoice />,
+  },
+  {
+    type: "collapse",
+    name: "WeighBridge Inward",
+    key: "weighbridge_inward",
+    icon: <Icon fontSize="small"><WeighbridgeIcon /> </Icon>,
+    route: "/weighbridge_inward",
+    component: <WeighBridge />,
+  },
+  {
+    type: "collapse",
+    name: "WeighBridge Outward",
+    key: "weighbridge_outward",
+    icon: <Icon fontSize="small"><WeighbridgeIcon /> </Icon>,
+    route: "/weighbridge_outward",
+    component: <WeighBridge2 />,
+  },
+  {
+    type: "collapse",
+    name: "WeighBridge Store",
+    key: "weighbridge_store",
+    icon: <Icon fontSize="small"><WeighbridgeIcon /> </Icon>,
+    route: "/weighbridge_store",
+    component: <WeighBridge3 />,
   },
   {
     type: "collapse",

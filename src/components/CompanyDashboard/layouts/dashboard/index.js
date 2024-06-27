@@ -20,6 +20,15 @@ import OrdersOverview from "../../layouts/dashboard/components/OrdersOverview";
 import EntranceIcon from '@mui/icons-material/ExitToApp';
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { scrollToRoute } from "../../examples/Sidenav"; 
+import SvgIcon from '@mui/material/SvgIcon';
+
+function WeighbridgeIcon(props) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M4 10h16v2H4v-2zm0 4h16v2H4v-2zm0-8h16v2H4V6zM2 2h2v20H2V2zm20 0h2v20h-2V2z"/>
+    </SvgIcon>
+  );
+}
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -145,6 +154,37 @@ function Dashboard() {
                 </div>
               </SwiperSlide>
             )}
+             {filterDivisions("WeighBridge") && (
+              <SwiperSlide>
+                <div className="card-container">
+                  <Grid item xs={12} md={6} lg={3}>
+                  <MDBox mb={1.5} onClick={() => handleCardClick("/weighbridge_inward")} style={{ cursor: "pointer" }}>
+                      <ComplexStatisticsCard
+                        icon={<WeighbridgeIcon />} 
+                        title={<h3 style={{ fontSize: '20px' ,fontFamily: 'Poppins, sans-serif'}}>WeighBridge</h3>}
+                        percentage={{
+                          amount: (
+                            <div style={{ fontFamily: 'Poppins, sans-serif'}}>
+                           <div style={{ paddingBottom: '1px' }}>
+                              Approval Pending: {42}
+                            </div>
+                            <br />
+                            <div style={{ paddingBottom: '1px' }}>
+                              Dispatch Pending: {22}
+                            </div>
+                            <br />
+                            <div style={{ paddingBottom: '1px' }}>
+                              Processing: {20}
+                            </div>
+                          </div>
+                          ), 
+                        }}
+                      />
+                    </MDBox>
+                  </Grid>
+                </div>
+              </SwiperSlide>
+            )} 
             {filterDivisions("Gate") && (
               <SwiperSlide>
                 <div className="card-container">
@@ -388,14 +428,14 @@ function Dashboard() {
                 </div>
               </SwiperSlide>
             )} 
-             {filterDivisions("Dispatch Order") && (
+             {filterDivisions("WeighBridge") && (
               <SwiperSlide>
                 <div className="card-container">
                   <Grid item xs={12} md={6} lg={3}>
-                  <MDBox mb={1.5} onClick={() => handleCardClick("/dispatch")} style={{ cursor: "pointer" }}>
+                  <MDBox mb={1.5} onClick={() => handleCardClick("/weighbridge")} style={{ cursor: "pointer" }}>
                       <ComplexStatisticsCard
                         icon="delivery_dining"
-                        title={<h3 style={{ fontSize: '20px' ,fontFamily: 'Poppins, sans-serif'}}>Dispatch Order</h3>}
+                        title={<h3 style={{ fontSize: '20px' ,fontFamily: 'Poppins, sans-serif'}}>WeighBridge</h3>}
                         percentage={{
                           amount: (
                             <div style={{ fontFamily: 'Poppins, sans-serif'}}>

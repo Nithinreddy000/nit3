@@ -12,7 +12,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import MDBox from "../../../components/MDBox";
 import MDTypography from "../../../components/MDTypography";
 
-function Stats_card_for_register({ color, title, count, percentage, icon, details }) {
+function Stats_card_for_register({ color, title, count, percentage, icon, details ,imagesShown }) {
   const cardRef = useRef(null);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function Stats_card_for_register({ color, title, count, percentage, icon, detail
   };
 
   return (
-    <Card ref={cardRef} sx={getCardStyles()} style={{ width: window.innerWidth >= 425 ? "110%" : window.innerWidth >= 375 ? "124%" : window.innerWidth >= 320 ? "127%" :'100%',}}>
+    <Card ref={cardRef} sx={getCardStyles()} style={{ width:  window.innerWidth >= 425 ? "110%" : window.innerWidth >= 375 ? "124%" : window.innerWidth >= 320 ? "127%" :'100%',}}>
       <MDBox display="flex" justifyContent="space-between" pt={1} px={2}>
        
         <MDBox textAlign="right" lineHeight={1.25}>
@@ -131,6 +131,7 @@ Stats_card_for_register.propTypes = {
   }),
   icon: PropTypes.node.isRequired,
   details: PropTypes.node, // Accepts nodes (JSX)
+  imagesShown: PropTypes.bool,
 };
 
 export default Stats_card_for_register;
